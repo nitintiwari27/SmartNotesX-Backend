@@ -108,9 +108,6 @@ export const getJobById = async (req, res) => {
       });
     }
 
-    // Increment views
-    await job.incrementViews();
-
     res.status(200).json({
       success: true,
       data: job,
@@ -248,6 +245,7 @@ export const applyForJob = async (req, res) => {
     // Add applicant to job
     await Job.findByIdAndUpdate(req.params.id, {
       $push: { applicants: req.user._id },
+      $inc: { views: 1 }
     });
 
     res.status(201).json({
