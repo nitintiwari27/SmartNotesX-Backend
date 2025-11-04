@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 // CORS configuration
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://smart-notes-x-frontend.vercel.app"],
+    origin: ["http://localhost:5173", "https://smartnotesx.vercel.app"],
     credentials: true,
   })
 );
